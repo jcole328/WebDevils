@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>What Do I Wear?</title>
 </head>
-<body>
-	<div id="logOnPannelId">
+<body onload="showLogOnPannel()">
+	<div id="logOnPannelId" class="pannelContent">
 		<div class="body">
 			<form id="logOnFormId">
 				<table id="logOnTableId" class="center">
@@ -19,32 +19,33 @@
 					</td></tr>
 				</table>
 				<div id="logOnButtonDivId" class="center">
-					<button>Log On</button>
+					<button onclick="showPannel('HomePannelId')">Log On</button>
 				</div>
 			</form>
 		</div>
 	</div>
-	<br><br><br><br>
-	<div id="HomePannelId">
+	
+	<div id="HomePannelId" class="pannelContent">
 		<div class="body">
-			<button id="logTodayId">Log Today's Outfit</button>
+			<button id="logTodayId" onclick="showPannel('takePicPannelId')">Log Today's Outfit</button>
 			<br><br>
-			<button id="viewItemsId">View Items</button>
+			<button id="viewItemsId" onclick="showPannel('itemsListPannelId')">View Items</button>
 			<br><br>
-			<button id="logOff">Log Off</button>
+			<button id="logOff"onclick="showPannel('logOnPannelId')">Log Off</button>
 		</div>
 	</div>
-	<br><br><br><br>
-	<div id="takePicPannelId">
+	
+	<div id="takePicPannelId" class="pannelContent">
 		<div class="header">
-			<button class="returnButton returnToHomeButton">Return</button>
+			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')">Return</button>
 		</div>
 		<div class="body">
-			<div id="cameraViewId">Camera</div>
+			<div id="cameraViewId">Camera
+				<button onclick="showPannel('pictureInfoPannelId')">Take Picture</button></div>
 		</div>
 	</div>
-	<br><br><br><br>
-	<div id="pictureInfoPannelId">
+	
+	<div id="pictureInfoPannelId" class="pannelContent">
 		<div class="body">
 			<table>
 				<tr>
@@ -58,16 +59,16 @@
 				</tr>
 			</table>
 			<div>
-				<button>Add</button>
+				<button onclick="showPannel('HomePannelId')">Add</button>
 				<br>
-				<button>Edit</button>
+				<button onclick="showPannel('editInfoPannelId')">Edit</button>
 				<br>
-				<button>Cancel</button>
+				<button onclick="showPannel('HomePannelId')">Cancel</button>
 			</div>
 		</div>
 	</div>
-	<br><br><br><br>
-	<div id="editInfoPannelId">
+	
+	<div id="editInfoPannelId" class="pannelContent">
 		<div class="body">
 			<table>
 				<tr><td>
@@ -81,38 +82,38 @@
 				</td></tr>
 			</table>
 			<div>
-				<button>Add</button>
+				<button onclick="showPannel('HomePannelId')">Add</button>
 				<br>
-				<button>Cancel</button>
+				<button onclick="showPannel('HomePannelId')">Cancel</button>
 			</div>
 		</div>
 	</div>
-	<br><br><br><br>
-	<div id="itemsListPannelId">
+	
+	<div id="itemsListPannelId" class="pannelContent">
 		<div class="header">
-			<button class="returnButton returnToHomeButton">Return</button>
+			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')">Return</button>
 		</div>
 		<div class="body">
 			<table>
 				<tr>
-					<td>Item0</td>
+					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')">Item0</a></td>
 					<td>Frequrncy</td>
 				</tr>
 				<tr>
-					<td>Item1</td>
+					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')">Item1</a></td>
 					<td>Frequency</td>
 				</tr>
 				<tr>
-					<td>ItemN</td>
+					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')">ItemN</a></td>
 					<td>Requency</td>
 				</tr>
 			</table>
 		</div>
 	</div>
-	<br><br><br><br>
-	<div id="ItemDetailsPannelId">
+	
+	<div id="ItemDetailsPannelId" class="pannelContent">
 		<div class="header">
-			<button class="returnButton returnToItemListButton">Return</button>
+			<button class="returnButton returnToItemListButton" onclick="showPannel('itemsListPannelId')">Return</button>
 		</div>
 		<div class="body">
 			<table>
@@ -127,9 +128,12 @@
 				</tr>
 			</table>
 			<div id="removeItemId">
-				<button id="removeItemButtonId">Remove Item</button>
+				<button id="removeItemButtonId" onclick="showPannel('HomePannelId')">Remove Item</button>
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript" src="./whatDoIWear.js"></script>
+
 </body>
 </html>
