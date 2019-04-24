@@ -3,6 +3,14 @@
 // Declare all variables
 var i, contentElems;
 
+/* wait until all phonegap/cordova is loaded then call onDeviceReady*/
+document.addEventListener("deviceready", onDeviceReady, false);
+
+
+function onDeviceReady() {
+    StatusBar.overlaysWebView(false); // force ios to show status bar
+    
+}
 function showLogOnPannel() {
 
 	// Get all elements with class="tabContent" and hide them

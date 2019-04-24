@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>What Do I Wear?</title>
+</head>
+<body onload="showLogOnPannel()">
+	<div id="logOnPannelId" class="pannelContent">
+		<div class="body">
+			<form id="logOnFormId">
+				<table id="logOnTableId" class="center">
+					<tr><td>
+						<input id="userNameInputId" type="text" placeholder="User Name" required>
+						<br><br>
+					</td></tr>
+					<tr><td>
+						<input id="passwordInputId" type="password" placeholder="Password" required>
+						<br><br>
+					</td></tr>
+				</table>
+				<div id="logOnButtonDivId" class="center">
+					<button onclick="showPannel('HomePannelId')">Log On</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<div id="HomePannelId" class="pannelContent">
+		<div class="body">
+			<button id="logTodayId" onclick="showPannel('takePicPannelId')">Log Today's Outfit</button>
+			<br><br>
+			<button id="viewItemsId" onclick="showPannel('itemsListPannelId')">View Items</button>
+			<br><br>
+			<button id="logOff"onclick="showPannel('logOnPannelId')">Log Off</button>
+		</div>
+	</div>
+	
+	<div id="takePicPannelId" class="pannelContent">
+		<div class="header">
+			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')">Return</button>
+		</div>
+		<div class="body">
+			<div id="cameraViewId">Camera
+				<button onclick="showPannel('pictureInfoPannelId')">Take Picture</button></div>
+		</div>
+	</div>
+	
+	<div id="pictureInfoPannelId" class="pannelContent">
+		<div class="body">
+			<table>
+				<tr>
+					<td>type</td>
+				</tr>
+				<tr>
+					<td>color</td>
+				</tr>
+				<tr>
+					<td>logo</td>
+				</tr>
+			</table>
+			<div>
+				<button onclick="showPannel('HomePannelId')">Add</button>
+				<br>
+				<button onclick="showPannel('editInfoPannelId')">Edit</button>
+				<br>
+				<button onclick="showPannel('HomePannelId')">Cancel</button>
+			</div>
+		</div>
+	</div>
+	
+	<div id="editInfoPannelId" class="pannelContent">
+		<div class="body">
+			<table>
+				<tr><td>
+					<input id="typeInputId" type="text" placeholder="Type" requires>
+				</td></tr>
+				<tr><td>
+					<input id="colorInputId" type="text" placeholder="Color" required>
+				</td></tr>
+				<tr><td>
+					<input id="logoInpurId" type="text" placeholder="Logo" required>
+				</td></tr>
+			</table>
+			<div>
+				<button onclick="showPannel('HomePannelId')">Add</button>
+				<br>
+				<button onclick="showPannel('HomePannelId')">Cancel</button>
+			</div>
+		</div>
+	</div>
+	
+	<div id="itemsListPannelId" class="pannelContent">
+		<div class="header">
+			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')">Return</button>
+		</div>
+		<div class="body">
+			<table>
+				<tr>
+					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')">Item0</a></td>
+					<td>Frequrncy</td>
+				</tr>
+				<tr>
+					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')">Item1</a></td>
+					<td>Frequency</td>
+				</tr>
+				<tr>
+					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')">ItemN</a></td>
+					<td>Requency</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<div id="ItemDetailsPannelId" class="pannelContent">
+		<div class="header">
+			<button class="returnButton returnToItemListButton" onclick="showPannel('itemsListPannelId')">Return</button>
+		</div>
+		<div class="body">
+			<table>
+				<tr>
+					<td>type</td>
+				</tr>
+				<tr>
+					<td>color</td>
+				</tr>
+				<tr>
+					<td>logo</td>
+				</tr>
+			</table>
+			<div id="removeItemId">
+				<button id="removeItemButtonId" onclick="showPannel('HomePannelId')">Remove Item</button>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./js/whatDoIWear.js"></script>
+
+</body>
+</html>
