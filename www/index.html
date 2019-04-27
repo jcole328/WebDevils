@@ -4,13 +4,13 @@
 	<meta charset="UTF-8">
 	<title>What Do I Wear?</title>
 </head>
-<body onload="showLogOnPannel()">
+<body>
 	<div id="logOnPannelId" class="pannelContent">
 		<div class="body">
 			<form id="logOnFormId">
 				<table id="logOnTableId" class="center">
 					<tr><td>
-						<input id="userNameInputId" type="text" placeholder="User Name" required>
+						<input id="userNameInputId" type="text" placeholder="User Name" onkeyup="this.value=this.value.toLowerCase();" required>
 						<br><br>
 					</td></tr>
 					<tr><td>
@@ -19,7 +19,7 @@
 					</td></tr>
 				</table>
 				<div id="logOnButtonDivId" class="center">
-					<button onclick="showPannel('HomePannelId')">Log On</button>
+					<button type="button" onclick="logOn('HomePannelId', this.form)">Log On</button>
 				</div>
 			</form>
 		</div>
@@ -27,7 +27,7 @@
 	
 	<div id="HomePannelId" class="pannelContent">
 		<div class="body">
-			<button id="logTodayId" onclick="showPannel('takePicPannelId')">Log Today's Outfit</button>
+			<button id="logTodayId" onclick="takePicture('takePicPannelId')">Log Today's Outfit</button>
 			<br><br>
 			<button id="viewItemsId" onclick="showPannel('itemsListPannelId')">View Items</button>
 			<br><br>
@@ -40,8 +40,12 @@
 			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')">Return</button>
 		</div>
 		<div class="body">
-			<div id="cameraViewId">Camera
-				<button onclick="showPannel('pictureInfoPannelId')">Take Picture</button></div>
+			<div id="cameraViewId">
+				<!-- img size is temporary. It will be relative in css -->
+				<img id="img" width="300"></img>
+				<button onclick="showPannel('pictureInfoPannelId')">New Item</button>
+				<button onclick="showPannel('pictureInfoPannelId')">Existing Item</button>
+			</div>
 		</div>
 	</div>
 	
@@ -132,7 +136,8 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="./js/whatDoIWear.js"></script>
 
 </body>
