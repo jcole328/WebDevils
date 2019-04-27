@@ -2,7 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" 
+		  content="width=device-width, user-scalable=no, 
+		  initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<!-- This is not a secure content policy, should be locked down for prod -->
+	<meta http-equiv="Content-Security-Policy" 
+		content="default-src 'self' data: gap: 'unsafe-inline' 
+					https://ssl.gstatic.com https://*.phonegap.com; 
+				style-src 'self' 'unsafe-inline'; 
+				script-src  'self' 'unsafe-inline' 'unsafe-eval' 
+					https://*.phonegap.com ;
+				media-src *" />	
 	<title>What Do I Wear?</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css" />
 </head>
 <body>
 	<div id="logOnPannelId" class="pannelContent">
