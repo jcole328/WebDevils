@@ -40,24 +40,24 @@
 	
 	<div id="HomePannelId" class="pannelContent">
 		<div class="body">
-			<button id="logTodayId" onclick="takePicture('takePicPannelId')">Log Today's Outfit</button>
+			<button id="logTodayId" onclick="takePicture('takePicPannelId')" class="center" >Log Today's Outfit</button>
 			<br><br>
-			<button id="viewItemsId" onclick="showPannel('itemsListPannelId')">View Items</button>
+			<button id="viewItemsId" onclick="showPannel('itemsListPannelId')" class="center" >View Items</button>
 			<br><br>
-			<button id="logOff"onclick="showPannel('logOnPannelId')">Log Off</button>
+			<button id="logOff"onclick="showPannel('logOnPannelId')" class="center" >Log Off</button>
 		</div>
 	</div>
 	
 	<div id="takePicPannelId" class="pannelContent">
 		<div class="header">
-			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')">Return</button>
+			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')" class="center">Return</button>
 		</div>
 		<div class="body">
 			<div id="cameraViewId">
 				<!-- img size is temporary. It will be relative in css -->
 				<img id="img" width="300"></img>
-				<button onclick="showPannel('pictureInfoPannelId')">New Item</button>
-				<button onclick="showPannel('pictureInfoPannelId')">Existing Item</button>
+				<button onclick="showPannel('pictureInfoPannelId')" class="center">New Item</button>
+				<button onclick="showPannel('pictureInfoPannelId')" class="center">Existing Item</button>
 			</div>
 		</div>
 	</div>
@@ -76,11 +76,11 @@
 				</tr>
 			</table>
 			<div>
-				<button onclick="showPannel('HomePannelId')">Add</button>
+				<button onclick="showPannel('HomePannelId')" class="center">Add</button>
 				<br>
-				<button onclick="showPannel('editInfoPannelId')">Edit</button>
+				<button onclick="showPannel('editInfoPannelId')" class="center">Edit</button>
 				<br>
-				<button onclick="showPannel('HomePannelId')">Cancel</button>
+				<button onclick="showPannel('HomePannelId')"class="center">Cancel</button>
 			</div>
 		</div>
 	</div>
@@ -89,50 +89,50 @@
 		<div class="body">
 			<table>
 				<tr><td>
-					<input id="typeInputId" type="text" placeholder="Type" requires>
+					<input id="typeInputId" type="text" placeholder="Type" requires class="center">
 				</td></tr>
 				<tr><td>
-					<input id="colorInputId" type="text" placeholder="Color" required>
+					<input id="colorInputId" type="text" placeholder="Color" required class="center">
 				</td></tr>
 				<tr><td>
-					<input id="logoInpurId" type="text" placeholder="Logo" required>
+					<input id="logoInpurId" type="text" placeholder="Logo" required class="center">
 				</td></tr>
 			</table>
 			<div>
-				<button onclick="showPannel('HomePannelId')">Add</button>
+				<button onclick="showPannel('HomePannelId')" class="center">Add</button>
 				<br>
-				<button onclick="showPannel('HomePannelId')">Cancel</button>
+				<button onclick="showPannel('HomePannelId')" class="center">Cancel</button>
 			</div>
 		</div>
 	</div>
 	
 	<div id="itemsListPannelId" class="pannelContent">
 		<div class="header">
-			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')">Return</button>
+			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')" class="center">Return</button>
 		</div>
 		<div class="body">
 			<table>
 				<tr>
-					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')">Item0</a></td>
-					<td>Frequrncy</td>
-				</tr>
-				<tr>
-					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')">Item1</a></td>
+					<td><a href="#" onclick="showPannel('ItemDetailsPannelId') " class="center">Item0</a></td>
 					<td>Frequency</td>
 				</tr>
 				<tr>
-					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')">ItemN</a></td>
+					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')"class="center">Item1</a></td>
+					<td>Frequency</td>
+				</tr>
+				<tr>
+					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')" class="center">ItemN</a></td>
 					<td>Requency</td>
 				</tr>
 			</table>
 		</div>
 	</div>
 	
-	<div id="ItemDetailsPannelId" class="pannelContent">
+	<div id="ItemDetailsPannelId" class="pannelContent" class="center">
 		<div class="header">
-			<button class="returnButton returnToItemListButton" onclick="showPannel('itemsListPannelId')">Return</button>
+			<button class="returnButton returnToItemListButton" onclick="showPannel('itemsListPannelId')" class="center">Return</button>
 		</div>
-		<div class="body">
+		<div class="body" class="center">
 			<table>
 				<tr>
 					<td>type</td>
@@ -144,8 +144,8 @@
 					<td>logo</td>
 				</tr>
 			</table>
-			<div id="removeItemId">
-				<button id="removeItemButtonId" onclick="showPannel('HomePannelId')">Remove Item</button>
+			<div id="removeItemId" class="center">
+				<button id="removeItemButtonId" onclick="showPannel('HomePannelId')" class="center">Remove Item</button>
 			</div>
 		</div>
 	</div>
