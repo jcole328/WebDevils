@@ -1,6 +1,6 @@
 "use strict";
 
-// Debug function togle in console
+// Debug function toggle in console
 var debug = true;
 
 // Declare all variables
@@ -25,6 +25,12 @@ function showLogOnPannel() {
 
     // Show the logOn pannel
 	document.getElementById('logOnPannelId').style.display = "block";
+
+    if (localStorage.userName !== undefined) {
+        document.getElementById('userNameInputId').value = localStorage.userName;
+        document.getElementById('passwordInputId').value = localStorage.password;
+        document.getElementById('logOnButtonId').click();
+    }
 }
 
 function showPannel(pannelName) {
@@ -57,18 +63,33 @@ function logOn(pannelName, form){
         // Database validation that the user credentials are correct
         // Test values w/o database
         if (userName === "jdcolem5" && password === "password") {
+            localStorage.clear();
+            localStorage.userName = userName;
+            localStorage.password = password;
             showPannel(pannelName);
         }
         else if (userName === "jfdanie1" && password === "password") {
+            localStorage.clear();
+            localStorage.userName = userName;
+            localStorage.password = password;
             showPannel(pannelName);
         }
         else if (userName === "ksarsam" && password === "password") {
+            localStorage.clear();
+            localStorage.userName = userName;
+            localStorage.password = password;
             showPannel(pannelName);
         }
         else if (userName === "jcpratt" && password === "password") {
+            localStorage.clear();
+            localStorage.userName = userName;
+            localStorage.password = password;
             showPannel(pannelName);
         }
         else if (userName === "qhnguye4" && password === "password") {
+            localStorage.clear();
+            localStorage.userName = userName;
+            localStorage.password = password;
             showPannel(pannelName);
         }
         else{
@@ -77,6 +98,13 @@ function logOn(pannelName, form){
             document.getElementById("passwordInputId").value = "";
         }
     }
+}
+
+function logOff(pannelName){
+    localStorage.clear();
+    document.getElementById("userNameInputId").value = "";
+    document.getElementById("passwordInputId").value = "";
+    showPannel(pannelName);
 }
 
 function takePicture(pannelName){
