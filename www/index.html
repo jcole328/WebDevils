@@ -14,15 +14,19 @@
 				script-src  'self' 'unsafe-inline' 'unsafe-eval' 
 					https://*.phonegap.com ;
 				media-src *" />	
-	<title>What Do I Wear?</title>
+	<title>What Should I Wear?</title>
 	<link rel="stylesheet" type="text/css" href="./css/index.css" />
 </head>
 <body>
 	<div id="logOnPannelId" class="pannelContent">
+		<div class="header center">
+				<img src="./images/whatShouldIWear.png" alt="What Should I Wear?">
+			</div>
 		<div class="body">
 			<form id="logOnFormId">
 				<table id="logOnTableId" class="center">
 					<tr><td>
+						<br><br>
 						<input id="userNameInputId" type="text" placeholder="User Name" onkeyup="this.value=this.value.toLowerCase();" required>
 						<br><br>
 					</td></tr>
@@ -36,29 +40,61 @@
 				</div>
 			</form>
 		</div>
+		<div class="footer">
+			<p>
+				Web Devils
+				<br>
+				Jackson Colman | John Dennis | Quy Nguyen | Joseph Pratt | Kamila Sarsam
+			</p>
+		</div>
 	</div>
 	
 	<div id="HomePannelId" class="pannelContent">
+		<div class="header center">
+				<img src="./images/whatShouldIWear.png" alt="What Should I Wear?">
+			</div>
 		<div class="body">
+			<br><br>
 			<button id="logTodayId" onclick="takePicture('takePicPannelId')" class="center" >Log Today's Outfit</button>
 			<br><br>
 			<button id="viewItemsId" onclick="showPannel('itemsListPannelId')" class="center" >View Items</button>
 			<br><br>
 			<button id="logOff"onclick="logOff('logOnPannelId')" class="center" >Log Off</button>
 		</div>
+		<div class="footer">
+			<p>Web Devils</p>
+			<p>Jackson Colman | John Dennis | Quy Nguyen | Joseph Pratt | Kamila Sarsam</p>
+		</div>
 	</div>
 	
 	<div id="takePicPannelId" class="pannelContent">
 		<div class="header">
-			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')" class="center">Return</button>
+			<button class="returnButton returnToHomeButton center" onclick="showPannel('HomePannelId')">Return</button>
 		</div>
 		<div class="body">
 			<div id="cameraViewId">
 				<!-- img size is temporary. It will be relative in css -->
-				<img id="img" width="300"></img>
-				<button onclick="showPannel('pictureInfoPannelId')" class="center">New Item</button>
-				<button onclick="showPannel('pictureInfoPannelId')" class="center">Existing Item</button>
+				<img id="img"></img>
+				<table>
+					<tr>
+						<td>
+							<button onclick="showPannel('pictureInfoPannelId')" class="center">New Item</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button onclick="showPannel('pictureInfoPannelId')" class="center">Existing Item</button>
+						</td>
+					</tr>
+				</table>
 			</div>
+		</div>
+		<div class="footer">
+			<p>
+				Web Devils
+				<br>
+				Jackson Colman | John Dennis | Quy Nguyen | Joseph Pratt | Kamila Sarsam
+			</p>
 		</div>
 	</div>
 	
@@ -83,6 +119,13 @@
 				<button onclick="showPannel('HomePannelId')"class="center">Cancel</button>
 			</div>
 		</div>
+		<div class="footer">
+			<p>
+				Web Devils
+				<br>
+				Jackson Colman | John Dennis | Quy Nguyen | Joseph Pratt | Kamila Sarsam
+			</p>
+		</div>
 	</div>
 	
 	<div id="editInfoPannelId" class="pannelContent">
@@ -103,6 +146,13 @@
 				<br>
 				<button onclick="showPannel('HomePannelId')" class="center">Cancel</button>
 			</div>
+		</div>
+		<div class="footer">
+			<p>
+				Web Devils
+				<br>
+				Jackson Colman | John Dennis | Quy Nguyen | Joseph Pratt | Kamila Sarsam
+			</p>
 		</div>
 	</div>
 	
@@ -126,6 +176,13 @@
 				</tr>
 			</table>
 		</div>
+		<div class="footer">
+			<p>
+				Web Devils
+				<br>
+				Jackson Colman | John Dennis | Quy Nguyen | Joseph Pratt | Kamila Sarsam
+			</p>
+		</div>
 	</div>
 	
 	<div id="ItemDetailsPannelId" class="pannelContent" class="center">
@@ -147,6 +204,13 @@
 			<div id="removeItemId" class="center">
 				<button id="removeItemButtonId" onclick="showPannel('HomePannelId')" class="center">Remove Item</button>
 			</div>
+		</div>
+		<div class="footer">
+			<p>
+				Web Devils
+				<br>
+				Jackson Colman | John Dennis | Quy Nguyen | Joseph Pratt | Kamila Sarsam
+			</p>
 		</div>
 	</div>
 	
