@@ -45,6 +45,7 @@ button {
   margin:       12px;
   width:        90vw;
   height:       fit-content;
+  border-radius: 12px
 }
 
 button.returnButton {
@@ -53,6 +54,7 @@ button.returnButton {
   margin:       12px;
   width:        5.0em;
   /*height:       5vh;*/
+  border-radius: 12px
 }
 
 #img {
