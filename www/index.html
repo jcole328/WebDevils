@@ -12,13 +12,16 @@
 					https://ssl.gstatic.com https://*.phonegap.com; 
 				style-src 'self' 'unsafe-inline'; 
 				script-src  'self' 'unsafe-inline' 'unsafe-eval' 
-					https://*.phonegap.com ;
+					http://mysqljs.com
+					https://*.phonegap.com;
 				media-src *" />	
 	<title>What Should I Wear?</title>
 	<link rel="stylesheet" type="text/css" href="./css/index.css" />
 </head>
 <body>
-	<div id="logOnPannelId" class="pannelContent">
+
+	<!-- LOG ON PANNEL -->
+	<div id="logOnPannelId" class="pannelContent" onload="MySql.Execute()">
 		<div class="header center">
 				<img src="./images/whatShouldIWear.png" alt="What Should I Wear?">
 			</div>
@@ -49,6 +52,7 @@
 		</div>
 	</div>
 	
+	<!-- HOME PANNEL  -->
 	<div id="HomePannelId" class="pannelContent">
 		<div class="header center">
 				<img src="./images/whatShouldIWear.png" alt="What Should I Wear?">
@@ -67,6 +71,7 @@
 		</div>
 	</div>
 	
+	<!-- TAKE PICTURE PANNEL -->
 	<div id="takePicPannelId" class="pannelContent">
 		<div class="header">
 			<button class="returnButton returnToHomeButton center" onclick="showPannel('HomePannelId')">Return</button>
@@ -98,6 +103,7 @@
 		</div>
 	</div>
 	
+	<!-- PICTURE INFO PANNEL -->
 	<div id="pictureInfoPannelId" class="pannelContent">
 		<div class="body">
 			<table>
@@ -128,6 +134,7 @@
 		</div>
 	</div>
 	
+	<!-- EDIT INFO PANNEL -->
 	<div id="editInfoPannelId" class="pannelContent">
 		<div class="body">
 			<table>
@@ -156,13 +163,14 @@
 		</div>
 	</div>
 	
-	<div id="itemsListPannelId" class="pannelContent">
+	<!-- ITEM LIST PANEL -->
+	<div id="itemsListPannelId" class="pannelContent" onload="MySql.Execute()">
 		<div class="header">
 			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')" class="center">Return</button>
 		</div>
-		<div class="body">
-			<table>
-				<tr>
+		<div class="body" id="clothes_table">
+			<table id="clothes_table">
+				<!-- <tr>
 					<td><a href="#" onclick="showPannel('ItemDetailsPannelId') " class="center">Item0</a></td>
 					<td>Frequency</td>
 				</tr>
@@ -173,7 +181,7 @@
 				<tr>
 					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')" class="center">ItemN</a></td>
 					<td>Requency</td>
-				</tr>
+				</tr> -->
 			</table>
 		</div>
 		<div class="footer">
@@ -185,6 +193,8 @@
 		</div>
 	</div>
 	
+
+	<!-- ITEM DETAILS PANNEL -->
 	<div id="ItemDetailsPannelId" class="pannelContent" class="center">
 		<div class="header">
 			<button class="returnButton returnToItemListButton" onclick="showPannel('itemsListPannelId')" class="center">Return</button>
@@ -216,6 +226,71 @@
 	
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="./js/whatDoIWear.js"></script>
+	<script src="http://mysqljs.com/mysql.js"></script>
+
+	<script>
+		MySql.Execute(
+
+			"sql.wpc-is.online",	// mySQL server
+			"ksarsam", 				// login name
+			"ksar5866", 			// login password
+			"BabyNames", 			// database to use
+									// SQL query string:
+			"SELECT 											\
+				date_worn, clothing_id, color, type, logo		\
+			 FROM 												\
+				db_test_ksarsam.clothing_worn					\
+			 ;",										
+			        function (data) {
+	        	processQueryResult(data);
+	    	}
+	    );
+
+    	function processQueryResult(queryReturned) {
+    		
+    		if (!queryReturned.Success) {
+    			alert(queryReturned.Error)
+    		} else {
+
+    			var table, tableBody, tableHeader, tableRow;
+    			var rows = queryReturned.length;
+
+    			var docTable = document.getElementById("clothes_table");
+
+    			body        = document.getElementsByTagName("body")[0];
+    			table  	  	= document.createElement("table");
+    			tableBody 	= document.createElement("tbody");
+    			tableHeader = document.createElement("tr");
+
+    			for (var i=0; i<queryReturned.Result[0].length; i++) {
+    				var cell 	 = document.createElement("th");
+    				var cellText = document.createTextNode(queryReturned.Result[0].keys()[i]);
+    				cell.appendChild(cellText);
+    				tableHeader.appendChild(cell);
+    			}
+    			tableBody.appendChild(tableHeader);
+
+    			for (var i=0; i<queryReturned.Result.length; i++) {
+    				var tableRow = document.createElement("tr");
+
+    				for (var j=0; j<Object.keys(queryReturned.Result[i]).length; j++) {
+	    				var cell 	 = document.createElement("td");
+	    				var cellText = document.createTextNode(Object.values(queryReturned.Result[i])[j]);
+	    				cell.appendChild(cellText);
+	    				tableRow.appendChild(cell);
+    				}
+
+	    			tableBody.appendChild(tableRow);
+    			}
+    			table.appendChild(tableBody);
+    			table.setAttribute("border", "1");
+    			table.style.borderCollapse="collapse";
+    			docTable.appendChild(table);
+    			//body.appendChild(table);
+    		}
+    	}
+	</script>
+
 
 </body>
 </html>

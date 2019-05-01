@@ -11,7 +11,7 @@
     <!-- =================================================================== -->
 
 <widget 
-    id          = "edu.asu.cis430.spring19.WebDevils.WhatShouldIWear"  
+    id          = "edu.asu.cis430.spring19.jdcolem5.WhatShouldIWear"  
     version     = "1.0.0" 
     xmlns       = "http://www.w3.org/ns/widgets" 
     xmlns:gap   = "http://phonegap.com/ns/1.0">
@@ -27,7 +27,7 @@
     </description>
 
    
-    <author email="jfdanie1@asu.edu" href="http://www.asu.edu">
+    <author email="jdcolem51@asu.edu" href="http://www.asu.edu">
         WebDevils
     </author>
 
