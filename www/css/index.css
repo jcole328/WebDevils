@@ -1,11 +1,12 @@
 * {
   box-sizing: border-box;
+  background-color:   #BEE2E7;
 }
 
 body {
   font-family:      sans-serif;
   font-size:      24px;
-  background-color:   beige;
+  background-color:   #BEE2E7;
 }
 
 /*.pannelContent {
@@ -19,6 +20,7 @@ body {
 
 .header img {
   width: 90vw;
+  background-color: #BEE2E7;
 }
 
 input {
@@ -41,24 +43,26 @@ input:focus:valid     { color: black; }
 
 button {
   font-size:      5vh;
-  background-color:   #bbbbbb;
+  background-color:   #72818B;
   margin:       12px;
   width:        90vw;
-  height:       fit-content;
+  /*height:       fit-content;*/
+  border-radius: 12px;
 }
 
 button.returnButton {
   font-size:      0.8em;
-  background-color:   #bbbbbb;
+  background-color:   #72818B;
   margin:       12px;
   width:        5.0em;
   /*height:       5vh;*/
 }
 
-#img {
+img {
   margin-right: 3vw;
   margin-left: 3vw;
   width: 90vw;
+  background: #BEE2E7;
 }
 
 .body {
@@ -71,7 +75,7 @@ button.returnButton {
   margin: auto;
   width: 97%;
   height: 2.5rem;
-  background-color:   beige;
+  /*background-color:   beige;*/
 
 }
 
@@ -97,4 +101,8 @@ th {
   background-color: #4CAF50;
   color: white;
   align="right"
+}
+
+#clothes_table th {
+  background-color: #8F002E;
 }

@@ -218,9 +218,9 @@
 					<td>logo</td>
 				</tr>
 			</table>
-			<div id="removeItemId" class="center">
+			<!-- <div id="removeItemId" class="center">
 				<button id="removeItemButtonId" onclick="showPannel('HomePannelId')" class="center">Remove Item</button>
-			</div>
+			</div> -->
 		</div>
 		<div class="footer">
 			<p>
@@ -322,6 +322,9 @@
 			  var row = header.insertRow(0);
 			  var cell = row.insertCell(0);
 			  row.innerHTML = " <th>Id</th> <th>Color</th> <th>Type</th> <th>Logo</th> <th># worn</th> ";
+
+			  row.setAttribute("style", "background-color: #8F002E");
+			  // row.childNodes[]
 
 	        table.appendChild(tableBody);
 	        table.setAttribute("border", "1");
