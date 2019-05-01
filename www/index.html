@@ -170,7 +170,7 @@
 		</div>
 		<div class="body" id="clothes_table">
 			<table id="clothes_table">
-				<tr> <th>Id</th> <th>Color</th> <th>Type<th> <th>Logo<th> <th># worn</th></tr>
+				<!-- <tr> <th>Id</th> <th>Color</th> <th>Type<th> <th>Logo<th> <th># worn</th> </tr> -->
 				<!-- <tr>
 					<td><a href="#" onclick="showPannel('ItemDetailsPannelId') " class="center">Item0</a></td>
 					<td>Frequency</td>
@@ -256,6 +256,7 @@
     			var table, tableBody, tableHeader, tableRow;
     			var rows = queryReturned.length;
 
+
     			var docTable = document.getElementById("clothes_table");
 
     			body        = document.getElementsByTagName("body")[0];
@@ -263,14 +264,17 @@
     			tableBody 	= document.createElement("tbody");
     			tableHeader = document.createElement("tr");
 
-    			for (var i=0; i<queryReturned.Result[0].length; i++) {
-    				var cell 	 = document.createElement("th");
-    				var cellText = document.createTextNode(queryReturned.Result[0].keys()[i]);
-    				cell.appendChild(cellText);
-    				tableHeader.appendChild(cell);
-    			}
+    			// for (var i=0; i<queryReturned.Result[0].length; i++) {
+    			// 	var cell 	 = document.createElement("th");
+    			// 	var cellText = document.createTextNode(queryReturned.Result[0].keys()[i]);
+    			// 	cell.appendChild(cellText);
+    			// 	tableHeader.appendChild(cell);
+    			// }
     			tableBody.appendChild(tableHeader);
-
+				  var header = table.createTHead();
+				  var row = header.insertRow(0);
+				  var cell = row.insertCell(0);
+				  row.innerHTML = " <th>Id</th> <th>Color</th> <th>Type</th> <th>Logo</th> <th># worn</th> ";
     			for (var i=0; i<queryReturned.Result.length; i++) {
     				var tableRow = document.createElement("tr");
 
