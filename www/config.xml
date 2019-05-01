@@ -11,7 +11,7 @@
     <!-- =================================================================== -->
 
 <widget 
-    id          = "edu.asu.cis430.spring19.jdcolem5.WhatShouldIWear"  
+    id          = "edu.asu.cis430.spring19.jdcolem5.ClosetCleaner"  
     version     = "1.0.0" 
     xmlns       = "http://www.w3.org/ns/widgets" 
     xmlns:gap   = "http://phonegap.com/ns/1.0">
@@ -20,7 +20,7 @@
     <!-- Change 'name', 'description', and 'author' tags below               -->
     <!-- =================================================================== -->
 
-    <name>WhatShouldIWear</name>
+    <name>ClosetCleaner</name>
 
     <description>
         App to track the clothes you were the most/least

@@ -15,7 +15,7 @@
 					http://mysqljs.com
 					https://*.phonegap.com;
 				media-src *" />	
-	<title>What Should I Wear?</title>
+	<title>Closet Cleaner</title>
 	<link rel="stylesheet" type="text/css" href="./css/index.css" />
 </head>
 <body>
@@ -23,7 +23,7 @@
 	<!-- LOG ON PANNEL -->
 	<div id="logOnPannelId" class="pannelContent" onload="MySql.Execute()">
 		<div class="header center">
-				<img src="./images/whatShouldIWear.png" alt="What Should I Wear?">
+				<img src="./images/closetCleaner.png" alt="Closet Cleaner">
 			</div>
 		<div class="body">
 			<form id="logOnFormId">
@@ -55,7 +55,7 @@
 	<!-- HOME PANNEL  -->
 	<div id="HomePannelId" class="pannelContent">
 		<div class="header center">
-				<img src="./images/whatShouldIWear.png" alt="What Should I Wear?">
+				<img src="./images/closetCleaner.png" alt="Closet Cleaner">
 			</div>
 		<div class="body">
 			<br><br>
@@ -225,25 +225,25 @@
 	</div>
 	
 	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="./js/whatDoIWear.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
 	<script src="http://mysqljs.com/mysql.js"></script>
 
 	<script>
 		MySql.Execute(
-			"sql.wpc-is.online",	// mySQL server
-		"ksarsam", 				// login name
-		"ksar5866", 			// login password
-		"db_test_ksarsam", 			// database to use
-							// SQL query string:
-		"SELECT 				\
-			date_worn, clothing_id, color, type, logo		\
-	 	FROM 												\
-			clothing_worn					\
-	 	;",										
-	        function (data) {
-    	processQueryResult(data);
-	}
 
+			"sql.wpc-is.online",	// mySQL server
+			"ksarsam", 				// login name
+			"ksar5866", 			// login password
+			"BabyNames", 			// database to use
+									// SQL query string:
+			"SELECT 											\
+				date, id, color, type, logo		\
+			 FROM 												\
+				db_test_ksarsam.clothing_worn					\
+			 ;",										
+			        function (data) {
+	        	processQueryResult(data);
+	    	}
 	    );
 
     	function processQueryResult(queryReturned) {
