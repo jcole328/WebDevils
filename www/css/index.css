@@ -46,8 +46,13 @@ button {
   background-color:   #72818B;
   margin:       12px;
   width:        90vw;
+<<<<<<< HEAD
   /*height:       fit-content;*/
   border-radius: 12px;
+=======
+  height:       fit-content;
+  border-radius: 12px
+>>>>>>> 234298c84fa0b865653096de8f07bae04fb0c008
 }
 
 button.returnButton {
@@ -56,6 +61,7 @@ button.returnButton {
   margin:       12px;
   width:        5.0em;
   /*height:       5vh;*/
+  border-radius: 12px
 }
 
 img {
@@ -102,7 +108,10 @@ th {
   color: white;
   align="right"
 }
+<<<<<<< HEAD
 
 #clothes_table th {
   background-color: #8F002E;
 }
+=======
+>>>>>>> 234298c84fa0b865653096de8f07bae04fb0c008
