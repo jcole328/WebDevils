@@ -170,6 +170,7 @@
 		</div>
 		<div class="body" id="clothes_table">
 			<table id="clothes_table">
+				<tr> <th>Id</th> <th>Color</th> <th>Type<th> <th>Logo<th> <th># worn</th></tr>
 				<!-- <tr>
 					<td><a href="#" onclick="showPannel('ItemDetailsPannelId') " class="center">Item0</a></td>
 					<td>Frequency</td>
@@ -234,12 +235,12 @@
 			"sql.wpc-is.online",	// mySQL server
 			"ksarsam", 				// login name
 			"ksar5866", 			// login password
-			"BabyNames", 			// database to use
+			"db_test_ksarsam", 			// database to use
 									// SQL query string:
 			"SELECT 											\
-				date, id, color, type, logo		\
+				*		\
 			 FROM 												\
-				db_test_ksarsam.clothing_worn					\
+				frequency_worn					\
 			 ;",										
 			        function (data) {
 	        	processQueryResult(data);
