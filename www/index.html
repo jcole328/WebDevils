@@ -168,7 +168,7 @@
 		<div class="header">
 			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')" class="center">Return</button>
 		</div>
-<<<<<<< HEAD
+
 		<div class="body" id="clothes_div">
 			<!-- <table id="clothes_table">
 				<tr>
@@ -243,17 +243,11 @@
 			"ksar5866", 			// login password
 			"db_test_ksarsam", 			// database to use
 									// SQL query string:
-<<<<<<< HEAD
+
 			"SELECT 					\
 				clothing_id, color, type, logo, frequency  \
 			 FROM 				          \
 				frequency_worn		      \
-=======
-			"SELECT 											\
-				*		\
-			 FROM 												\
-				frequency_worn					\
->>>>>>> c8a2e3840e720cd963579f398a9613d6d61d368a
 			 ;",										
 			        function (data) {
 		    	processQueryResult(data);
@@ -263,89 +257,80 @@
 
 	    function processQueryResult(queryReturned) {
             
-    if (!queryReturned.Success) {
-        alert(queryReturned.Error)
-    } else {
+	    if (!queryReturned.Success) {
+	        alert(queryReturned.Error)
+	    } else {
 
-        var table, tableBody, tableHeader, tableRow;
-        var rows = queryReturned.length;
+	        var table, tableBody, tableHeader, tableRow;
+	        var rows = queryReturned.length;
 
-        var docTable = document.getElementById("clothes_div");
+	        var docTable = document.getElementById("clothes_div");
 
-        body        = document.getElementsByTagName("body")[0];
-        table       = document.createElement("table");
-        tableBody   = document.createElement("tbody");
-        tableHeader = document.createElement("tr");
+	        body        = document.getElementsByTagName("body")[0];
+	        table       = document.createElement("table");
+	        tableBody   = document.createElement("tbody");
+	        tableHeader = document.createElement("tr");
 
-        table.setAttribute("id", "clothes_table")
+	        table.setAttribute("id", "clothes_table")
 
-        //debugger;
-        for (var i=0; i<queryReturned.Result[0].length; i++) {
-            var cell     = document.createElement("th");
-            var cellText = document.createTextNode(queryReturned.Result[0].keys()[i]);
-            cell.appendChild(cellText);
-            tableHeader.appendChild(cell);
-        }
-        tableBody.appendChild(tableHeader);
+	        debugger;
+	        for (var i=0; i<queryReturned.Result[0].length; i++) {
+	            var cell     = document.createElement("th");
+	            var cellText = document.createTextNode(queryReturned.Result[0].keys()[i]);
+	            cell.appendChild(cellText);
+	            tableHeader.appendChild(cell);
+	        }
+	        tableBody.appendChild(tableHeader);
 
-<<<<<<< HEAD
-        for (var i=0; i<queryReturned.Result.length; i++) {
-            var tableRow = document.createElement("tr");
-=======
 
-    			var docTable = document.getElementById("clothes_table");
->>>>>>> c8a2e3840e720cd963579f398a9613d6d61d368a
+	        for (var i=0; i<queryReturned.Result.length; i++) {
+	            var tableRow = document.createElement("tr");
 
-            for (var j=0; j<Object.keys(queryReturned.Result[i]).length; j++) {
-                // Create the td cell to hold the anchor tag
-                let cell    = document.createElement("td");
+				var docTable = document.getElementById("clothes_div");
 
-<<<<<<< HEAD
-                if (j === 0) {                          
-                    let a = document.createElement('a');
-                    a = cell.appendChild(a);
-                    // Get the value of the clothing id
-                    var cellText = document.createTextNode(Object.values(queryReturned.Result[i])[j]);
-                    tableRow.setAttribute("id", "item_" + cellText.nodeValue)
-                    a.setAttribute("href", "#");
-                    a.setAttribute("onclick", "storeItemVariables('item_" + cellText.nodeValue + "')");
 
-                    a.innerHTML = cellText.nodeValue;
-                }
-                else {
-                    // Set Cell text to the current value
-                    var cellText = document.createTextNode(Object.values(queryReturned.Result[i])[j]);  
-                    cell.appendChild(cellText);
-                }                       
-                
-                
-                tableRow.appendChild(cell);
-            }
-=======
-    			// for (var i=0; i<queryReturned.Result[0].length; i++) {
-    			// 	var cell 	 = document.createElement("th");
-    			// 	var cellText = document.createTextNode(queryReturned.Result[0].keys()[i]);
-    			// 	cell.appendChild(cellText);
-    			// 	tableHeader.appendChild(cell);
-    			// }
-    			tableBody.appendChild(tableHeader);
-				  var header = table.createTHead();
-				  var row = header.insertRow(0);
-				  var cell = row.insertCell(0);
-				  row.innerHTML = " <th>Id</th> <th>Color</th> <th>Type</th> <th>Logo</th> <th># worn</th> ";
-    			for (var i=0; i<queryReturned.Result.length; i++) {
-    				var tableRow = document.createElement("tr");
->>>>>>> c8a2e3840e720cd963579f398a9613d6d61d368a
+	            for (var j=0; j<Object.keys(queryReturned.Result[i]).length; j++) {
+	                // Create the td cell to hold the anchor tag
+	                let cell    = document.createElement("td");
+	                if (j === 0) {                          
+	                    let a = document.createElement('a');
+	                    a = cell.appendChild(a);
+	                    // Get the value of the clothing id
+	                    var cellText = document.createTextNode(Object.values(queryReturned.Result[i])[j]);
+	                    tableRow.setAttribute("id", "item_" + cellText.nodeValue)
+	                    a.setAttribute("href", "#");
+	                    a.setAttribute("onclick", "storeItemVariables('item_" + cellText.nodeValue + "')");
 
-            tableBody.appendChild(tableRow);
-        }
-        table.appendChild(tableBody);
-        table.setAttribute("border", "1");
-        table.style.borderCollapse="collapse";
-        docTable.appendChild(table);            
-            
-        }
-    }
+	                    a.innerHTML = cellText.nodeValue;
+	                }
+	                else {
+	                    // Set Cell text to the current value
+	                    var cellText = document.createTextNode(Object.values(queryReturned.Result[i])[j]);  
+	                    cell.appendChild(cellText);
+	                }                       
+	                
+	                
+	                tableRow.appendChild(cell);
+	            }
+	    			
+	            tableBody.appendChild(tableRow);
+	        }
+
+
+	        tableBody.appendChild(tableHeader);
+			  var header = table.createTHead();
+			  var row = header.insertRow(0);
+			  var cell = row.insertCell(0);
+			  row.innerHTML = " <th>Id</th> <th>Color</th> <th>Type</th> <th>Logo</th> <th># worn</th> ";
+
+	        table.appendChild(tableBody);
+	        table.setAttribute("border", "1");
+	        table.style.borderCollapse="collapse";
+	        docTable.appendChild(table);            
+	            
+	        }
+	    }
+	
 
 	</script>
 
