@@ -168,9 +168,16 @@
 		<div class="header">
 			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')" class="center">Return</button>
 		</div>
+<<<<<<< HEAD
 		<div class="body" id="clothes_div">
 			<!-- <table id="clothes_table">
 				<tr>
+=======
+		<div class="body" id="clothes_table">
+			<table id="clothes_table">
+				<!-- <tr> <th>Id</th> <th>Color</th> <th>Type<th> <th>Logo<th> <th># worn</th> </tr> -->
+				<!-- <tr>
+>>>>>>> c8a2e3840e720cd963579f398a9613d6d61d368a
 					<td><a href="#" onclick="showPannel('ItemDetailsPannelId') " class="center">Item0</a></td>
 					<td>Frequency</td>
 				</tr>
@@ -236,10 +243,17 @@
 			"ksar5866", 			// login password
 			"db_test_ksarsam", 			// database to use
 									// SQL query string:
+<<<<<<< HEAD
 			"SELECT 					\
 				clothing_id, color, type, logo, frequency  \
 			 FROM 				          \
 				frequency_worn		      \
+=======
+			"SELECT 											\
+				*		\
+			 FROM 												\
+				frequency_worn					\
+>>>>>>> c8a2e3840e720cd963579f398a9613d6d61d368a
 			 ;",										
 			        function (data) {
 		    	processQueryResult(data);
@@ -274,13 +288,19 @@
         }
         tableBody.appendChild(tableHeader);
 
+<<<<<<< HEAD
         for (var i=0; i<queryReturned.Result.length; i++) {
             var tableRow = document.createElement("tr");
+=======
+
+    			var docTable = document.getElementById("clothes_table");
+>>>>>>> c8a2e3840e720cd963579f398a9613d6d61d368a
 
             for (var j=0; j<Object.keys(queryReturned.Result[i]).length; j++) {
                 // Create the td cell to hold the anchor tag
                 let cell    = document.createElement("td");
 
+<<<<<<< HEAD
                 if (j === 0) {                          
                     let a = document.createElement('a');
                     a = cell.appendChild(a);
@@ -301,6 +321,21 @@
                 
                 tableRow.appendChild(cell);
             }
+=======
+    			// for (var i=0; i<queryReturned.Result[0].length; i++) {
+    			// 	var cell 	 = document.createElement("th");
+    			// 	var cellText = document.createTextNode(queryReturned.Result[0].keys()[i]);
+    			// 	cell.appendChild(cellText);
+    			// 	tableHeader.appendChild(cell);
+    			// }
+    			tableBody.appendChild(tableHeader);
+				  var header = table.createTHead();
+				  var row = header.insertRow(0);
+				  var cell = row.insertCell(0);
+				  row.innerHTML = " <th>Id</th> <th>Color</th> <th>Type</th> <th>Logo</th> <th># worn</th> ";
+    			for (var i=0; i<queryReturned.Result.length; i++) {
+    				var tableRow = document.createElement("tr");
+>>>>>>> c8a2e3840e720cd963579f398a9613d6d61d368a
 
             tableBody.appendChild(tableRow);
         }
