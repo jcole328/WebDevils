@@ -124,3 +124,9 @@ function takePicture(pannelName){
         alert('Failed because: ' + msg);
     }
 }
+
+
+
+function storeItemVariables(id){
+   showPannel('ItemDetailsPannelId');
+}

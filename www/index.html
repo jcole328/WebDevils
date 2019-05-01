@@ -168,9 +168,9 @@
 		<div class="header">
 			<button class="returnButton returnToHomeButton" onclick="showPannel('HomePannelId')" class="center">Return</button>
 		</div>
-		<div class="body" id="clothes_table">
-			<table id="clothes_table">
-				<!-- <tr>
+		<div class="body" id="clothes_div">
+			<!-- <table id="clothes_table">
+				<tr>
 					<td><a href="#" onclick="showPannel('ItemDetailsPannelId') " class="center">Item0</a></td>
 					<td>Frequency</td>
 				</tr>
@@ -181,8 +181,8 @@
 				<tr>
 					<td><a href="#" onclick="showPannel('ItemDetailsPannelId')" class="center">ItemN</a></td>
 					<td>Requency</td>
-				</tr> -->
-			</table>
+				</tr>
+			</table> -->
 		</div>
 		<div class="footer">
 			<p>
@@ -234,60 +234,84 @@
 			"sql.wpc-is.online",	// mySQL server
 			"ksarsam", 				// login name
 			"ksar5866", 			// login password
-			"BabyNames", 			// database to use
+			"db_test_ksarsam", 			// database to use
 									// SQL query string:
-			"SELECT 											\
-				date, id, color, type, logo		\
-			 FROM 												\
-				db_test_ksarsam.clothing_worn					\
+			"SELECT 					\
+				clothing_id, color, type, logo, frequency  \
+			 FROM 				          \
+				frequency_worn		      \
 			 ;",										
 			        function (data) {
-	        	processQueryResult(data);
-	    	}
+		    	processQueryResult(data);
+			}
+
 	    );
 
-    	function processQueryResult(queryReturned) {
-    		
-    		if (!queryReturned.Success) {
-    			alert(queryReturned.Error)
-    		} else {
+	    function processQueryResult(queryReturned) {
+            
+    if (!queryReturned.Success) {
+        alert(queryReturned.Error)
+    } else {
 
-    			var table, tableBody, tableHeader, tableRow;
-    			var rows = queryReturned.length;
+        var table, tableBody, tableHeader, tableRow;
+        var rows = queryReturned.length;
 
-    			var docTable = document.getElementById("clothes_table");
+        var docTable = document.getElementById("clothes_div");
 
-    			body        = document.getElementsByTagName("body")[0];
-    			table  	  	= document.createElement("table");
-    			tableBody 	= document.createElement("tbody");
-    			tableHeader = document.createElement("tr");
+        body        = document.getElementsByTagName("body")[0];
+        table       = document.createElement("table");
+        tableBody   = document.createElement("tbody");
+        tableHeader = document.createElement("tr");
 
-    			for (var i=0; i<queryReturned.Result[0].length; i++) {
-    				var cell 	 = document.createElement("th");
-    				var cellText = document.createTextNode(queryReturned.Result[0].keys()[i]);
-    				cell.appendChild(cellText);
-    				tableHeader.appendChild(cell);
-    			}
-    			tableBody.appendChild(tableHeader);
+        table.setAttribute("id", "clothes_table")
 
-    			for (var i=0; i<queryReturned.Result.length; i++) {
-    				var tableRow = document.createElement("tr");
+        //debugger;
+        for (var i=0; i<queryReturned.Result[0].length; i++) {
+            var cell     = document.createElement("th");
+            var cellText = document.createTextNode(queryReturned.Result[0].keys()[i]);
+            cell.appendChild(cellText);
+            tableHeader.appendChild(cell);
+        }
+        tableBody.appendChild(tableHeader);
 
-    				for (var j=0; j<Object.keys(queryReturned.Result[i]).length; j++) {
-	    				var cell 	 = document.createElement("td");
-	    				var cellText = document.createTextNode(Object.values(queryReturned.Result[i])[j]);
-	    				cell.appendChild(cellText);
-	    				tableRow.appendChild(cell);
-    				}
+        for (var i=0; i<queryReturned.Result.length; i++) {
+            var tableRow = document.createElement("tr");
 
-	    			tableBody.appendChild(tableRow);
-    			}
-    			table.appendChild(tableBody);
-    			table.setAttribute("border", "1");
-    			table.style.borderCollapse="collapse";
-    			docTable.appendChild(table);    		
-    		}
-    	}
+            for (var j=0; j<Object.keys(queryReturned.Result[i]).length; j++) {
+                // Create the td cell to hold the anchor tag
+                let cell    = document.createElement("td");
+
+                if (j === 0) {                          
+                    let a = document.createElement('a');
+                    a = cell.appendChild(a);
+                    // Get the value of the clothing id
+                    var cellText = document.createTextNode(Object.values(queryReturned.Result[i])[j]);
+                    tableRow.setAttribute("id", "item_" + cellText.nodeValue)
+                    a.setAttribute("href", "#");
+                    a.setAttribute("onclick", "storeItemVariables('item_" + cellText.nodeValue + "')");
+
+                    a.innerHTML = cellText.nodeValue;
+                }
+                else {
+                    // Set Cell text to the current value
+                    var cellText = document.createTextNode(Object.values(queryReturned.Result[i])[j]);  
+                    cell.appendChild(cellText);
+                }                       
+                
+                
+                tableRow.appendChild(cell);
+            }
+
+            tableBody.appendChild(tableRow);
+        }
+        table.appendChild(tableBody);
+        table.setAttribute("border", "1");
+        table.style.borderCollapse="collapse";
+        docTable.appendChild(table);            
+            
+        }
+    }
+
 	</script>
 
 
