@@ -230,20 +230,20 @@
 
 	<script>
 		MySql.Execute(
-
 			"sql.wpc-is.online",	// mySQL server
-			"ksarsam", 				// login name
-			"ksar5866", 			// login password
-			"BabyNames", 			// database to use
-									// SQL query string:
-			"SELECT 											\
-				date_worn, clothing_id, color, type, logo		\
-			 FROM 												\
-				db_test_ksarsam.clothing_worn					\
-			 ;",										
-			        function (data) {
-	        	processQueryResult(data);
-	    	}
+		"ksarsam", 				// login name
+		"ksar5866", 			// login password
+		"db_test_ksarsam", 			// database to use
+							// SQL query string:
+		"SELECT 				\
+			date_worn, clothing_id, color, type, logo		\
+	 	FROM 												\
+			clothing_worn					\
+	 	;",										
+	        function (data) {
+    	processQueryResult(data);
+	}
+
 	    );
 
     	function processQueryResult(queryReturned) {
@@ -285,8 +285,7 @@
     			table.appendChild(tableBody);
     			table.setAttribute("border", "1");
     			table.style.borderCollapse="collapse";
-    			docTable.appendChild(table);
-    			//body.appendChild(table);
+    			docTable.appendChild(table);    		
     		}
     	}
 	</script>
